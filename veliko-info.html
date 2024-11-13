@@ -118,6 +118,64 @@
         width: 150px; /* Ajustez la taille selon vos besoins */
         height: auto;
     }
+    .main-image img {
+        max-width: 100%;
+        cursor: pointer;
+    }
+
+    /* Style de l'image principale */
+    .main-image img {
+        max-width: 200px; /* Taille de l'image réduite */
+        cursor: pointer;
+        transition: transform 0.3s ease; /* Pour une légère animation de zoom */
+    }
+
+    /* Style de l'image lorsqu'on survole */
+    .main-image img:hover {
+        transform: scale(1.1); /* Légère augmentation de la taille au survol */
+    }
+
+    /* Style du modal en plein écran */
+    .modal {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+    }
+
+    .modal img {
+        max-width: 90%;
+        max-height: 90%;
+    }
+
+    .close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        color: white;
+        font-size: 30px;
+        cursor: pointer;
+    }
+
+    .next {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        color: white;
+        background: rgba(0, 0, 0, 0.5);
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        font-size: 20px;
+        transform: translateY(-50%);
+    }
+
 
 
 </style>
@@ -160,13 +218,13 @@
     <div class="stage-info">
         <h2>Projet veliko</h2>
         <div class="company-info">
-            <p>Veliko est une application qui permet de suivre en temps réel la disponibilité des vélos dans les stations de partage.
-                Son objectif est de faciliter l'accès aux vélos en informant les utilisateurs de la localisation et de la disponibilité des stations, contribuant ainsi à encourager une mobilité plus durable en milieu urbain.
+            <p> <strong>Veliko </strong> est une application qui permet de suivre en temps réel la <strong>disponibilité des vélos dans les stations </strong> de partage.
+                Son objectif est de faciliter l'accès aux vélos en informant les utilisateurs de la <strong> localisation et de la disponibilité</strong>  des stations, contribuant ainsi à encourager une mobilité plus durable en milieu urbain.
                 Ce rapport présentera les outils utilisés, les différentes versions du projet, les difficultés rencontrées ainsi que la conclusion de cette réalisation.
             </p>
         </div>
 
-        <h2><strong>Moyens utilisés :</strong></h2>
+        <h2><strong>Outils utilisés :</strong></h2>
         <div class="tools">
             <p>Le projet a été réalisé en utilisant :</p>
             <p><strong> Langages :</strong> </p>
@@ -186,15 +244,74 @@
             <img src="assets/img/portfolio/veliko/symfony.png" alt="Symfony">
             </div>
 
-            <p> <strong>L'API de Vélib'</strong> et <strong>Street View Map</strong> ont également été utilisées pour afficher la carte et suivre les vélos en temps réel.</p>
-
+            <p> <strong>L'API de Vélib' et Street View Map :</strong> </p>
+            <div class="images-container">
+                <img src="assets/img/portfolio/veliko/streetMap.png" alt="Street View">
+            </div>
         </div>
 
+        <h2><strong>Versions :</strong></h2>
+        <div class="tools">
+        <div class="images-container">
+            <div class="main-image">
+                <img src="assets/img/portfolio/veliko/versions/Version1.png" alt="Image principale" onclick="openModal(0, 'gallery1')">
+            </div>
+
+            <div class="main-image">
+                <img src="assets/img/portfolio/veliko/versions/Version2.png" alt="Image 2" onclick="openModal(0, 'gallery2')">
+            </div>
+        </div>
+
+        <!-- Modal for full-screen image display -->
+        <div id="imageModal" class="modal" style="display: none;">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modalImage" src="" alt="Modal Image">
+            <button class="next" onclick="nextModalSlide()">❯</button>
+        </div>
+        </div>
 
     </div>
 
 
+    <script>
 
+        let currentModalIndex = 0;
+        let currentGallery = [];
+
+        const gallery1 = [
+            "assets/img/portfolio/veliko/versions/accueil.png",
+            "assets/img/portfolio/veliko/versions/carte.png",
+            "assets/img/portfolio/veliko/versions/popUp.png"
+        ];
+
+        const gallery2 = [
+            "assets/img/portfolio/veliko/versions/inscription.png",
+            "assets/img/portfolio/veliko/versions/email.png",
+            "assets/img/portfolio/veliko/versions/connexion.png",
+            "assets/img/portfolio/veliko/versions/profil.png",
+            "assets/img/portfolio/veliko/versions/stationFav.png",
+            "assets/img/portfolio/veliko/versions/popUpFav.png"
+        ];
+
+        function openModal(index, galleryName) {
+            // Select the correct gallery based on the passed name
+            currentGallery = galleryName === 'gallery1' ? gallery1 : gallery2;
+            currentModalIndex = index;
+            document.getElementById('modalImage').src = currentGallery[currentModalIndex];
+            document.getElementById('imageModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+        function nextModalSlide() {
+            currentModalIndex = (currentModalIndex + 1) % currentGallery.length;
+            document.getElementById('modalImage').src = currentGallery[currentModalIndex];
+        }
+
+
+    </script>
 
 </main>
 
