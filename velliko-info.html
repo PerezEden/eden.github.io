@@ -101,6 +101,24 @@
         display: block;
         margin: 10px auto;
     }
+    .tools {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .images-container {
+        display: flex;
+        gap: 70px; /* Espace entre les images */
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .images-container img {
+        width: 150px; /* Ajustez la taille selon vos besoins */
+        height: auto;
+    }
+
 
 </style>
 
@@ -109,33 +127,16 @@
 <header id="header" class="header dark-background d-flex flex-column">
     <i class="header-toggle d-xl-none bi bi-list"></i>
 
-    <!--    <div class="profile-img">-->
-    <!--      <img src="assets/img/my-profile-img.jpg" alt="" class="img-fluid rounded-circle">-->
-    <!--    </div>-->
 
     <a href="index.html" class="logo d-flex align-items-center justify-content-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1 class="sitename">Eden Perez</h1>
     </a>
 
-<!--    <div class="social-links text-center">-->
-<!--        <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>-->
-<!--        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>-->
-<!--        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>-->
-<!--        <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>-->
-<!--        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>-->
-<!--    </div>-->
 
     <nav id="navmenu" class="navmenu">
         <ul>
             <li><a href="index.html"><i class="bi bi-house navicon"></i>Accueil</a></li>
-<!--            <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Accueil</a></li>-->
-<!--            <li><a href="#about"><i class="bi bi-person navicon"></i> A propos </a></li>-->
-<!--            <li><a href="#parcours"><i class="bi bi-file-earmark-text navicon"></i> Parcours</a></li>-->
-<!--            <li><a href="#stages"><i class="bi bi-person navicon"></i> Stages </a></li>-->
-<!--            <li><a href="#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>-->
-<!--            <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>-->
+
         </ul>
     </nav>
 </header>
@@ -146,7 +147,7 @@
     <!-- Page Title -->
     <div class="page-title dark-background">
         <div class="container d-lg-flex justify-content-between align-items-center">
-            <h1 class="mb-2 mb-lg-0">Stage Naor</h1>
+            <h1 class="mb-2 mb-lg-0">Projet veliko</h1>
             <nav class="breadcrumbs">
                 <ol>
                     <li><a href="index.html">Home</a></li>
@@ -157,41 +158,44 @@
     </div><!-- End Page Title -->
 
     <div class="stage-info">
-        <h2>Informations sur le stage</h2>
-
+        <h2>Projet veliko</h2>
         <div class="company-info">
-            <p><strong>Nom de l'entreprise :</strong> Naor</p>
-            <p><strong>Secteur d'activité :</strong> Recherche-developpement en biotechnologie</p>
-            <p><strong>Nom domaine : </strong> <a href="https://naor.app/">Naor</a></p>
-        </div>
-
-        <h2><strong>Mission :</strong></h2>
-        <div class="mission">
-            <img src="assets/img/naorStage/multilingue.png" alt="Image mission">
-            <p>Durant mon stage chez Naor Innov, ma mission principale consistait à <strong>rendre leur site web multilingue </strong>. L'entreprise souhaitant étendre ses actions à l'international, il était nécessaire de traduire le site dans plusieurs langues pour toucher un public plus large. J'ai donc été chargé d'adapter le site pour qu'il soit accessible en cinq langues supplémentaires :  anglais, allemand, italien, espagnol et portugais.</p>
+            <p>Veliko est une application qui permet de suivre en temps réel la disponibilité des vélos dans les stations de partage.
+                Son objectif est de faciliter l'accès aux vélos en informant les utilisateurs de la localisation et de la disponibilité des stations, contribuant ainsi à encourager une mobilité plus durable en milieu urbain.
+                Ce rapport présentera les outils utilisés, les différentes versions du projet, les difficultés rencontrées ainsi que la conclusion de cette réalisation.
+            </p>
         </div>
 
         <h2><strong>Moyens utilisés :</strong></h2>
         <div class="tools">
-            <p>Pour accomplir cette tâche, j'ai eu accès aux <strong>fichiers PHP </strong> stockés sur leur serveur distant grâce au logiciel <strong>FileZilla </strong>, qui me permettait de les modifier à distance. Pour effectuer les traductions, j'ai utilisé <strong> Poedit </strong>, un logiciel spécialisé dans l'édition des fichiers de langue. J'ai également travaillé avec des <strong> bibliothèques de traduction et des fichiers JSON </strong> pour intégrer les nouvelles langues aux librairies déjà en place sur le site.</p>
-            <a href="assets/img/naorStage/poedit.png"><i class="bi bi-zoom-in"></i></a>
-            <img src="assets/img/naorStage/poedit.png" alt="Poedit">
-            <a href="assets/img/naorStage/filezilla.png"><i class="bi bi-zoom-in"></i></a>
-            <img src="assets/img/naorStage/filezilla.png" alt="FileZilla">
-            <p>L'objectif était d'adapter automatiquement la langue du site à celle du navigateur de l'utilisateur. De plus, une option a été ajoutée pour permettre aux utilisateurs de <strong> changer de langue manuellement </strong> une fois sur le site.</p>
+            <p>Le projet a été réalisé en utilisant :</p>
+            <p><strong> Langages :</strong> </p>
+            <div class="images-container">
+                <img src="assets/img/portfolio/veliko/css.png" alt="CSS">
+                <img src="assets/img/portfolio/veliko/html.png" alt="HTML">
+                <img src="assets/img/portfolio/veliko/twig.png" alt="Twig">
+            </div>
+
+            <div class="images-container">
+                <img src="assets/img/portfolio/veliko/js.png" alt="JS">
+                <img src="assets/img/portfolio/veliko/php.png" alt="PHP">
+                <img src="assets/img/portfolio/veliko/sql.png" alt="SQL">
+            </div>
+            <p><strong> ORM :</strong> </p>
+            <div class="images-container">
+            <img src="assets/img/portfolio/veliko/symfony.png" alt="Symfony">
+            </div>
+
+            <p> <strong>L'API de Vélib'</strong> et <strong>Street View Map</strong> ont également été utilisées pour afficher la carte et suivre les vélos en temps réel.</p>
+
         </div>
 
-        <h2><strong>Problèmes rencontrés :</strong></h2>
-        <p>J'ai rencontré des difficultés principalement pour <strong> maintenir le choix de la langue lors des navigations entre les pages </strong>, car il était impossible d'utiliser les sessions en PHP pour gérer cette fonctionnalité. Cette limitation rendait complexe la persistance du changement de langue de manière automatique. Par ailleurs, j'ai rencontré des difficultés avec les mots comportant des <strong> accents et des caractères spéciaux </strong>, en particulier en espagnol, qui en possède de nombreux.</p>
 
-        <h2><strong>Résultats :</strong></h2>
-        <p>J’ai pu terminer la traduction complète du site dans les langues demandées à temps. En fin de stage, l’équipe m’a confié un bloc supplémentaire à traduire, mais je n’ai eu que le temps de commencer ce travail.</p>
-        <a href="assets/img/naorStage/dashboardNaor.png"><i class="bi bi-zoom-in"></i></a>
-        <img src="assets/img/naorStage/dashboardNaor.png" alt="Dashboard Naor" >
-
-        <h2><strong>Conclusion :</strong></h2>
-        <p> Ce stage m’a permis de développer mes compétences en <strong> gestion de projet multilingue </strong>, en utilisation d’outils de traduction et en travail avec des serveurs distants. Il a été une expérience professionnelle enrichissante qui m'a permis de mettre en pratique mes compétences techniques tout en développant de nouvelles aptitudes.</p>
     </div>
+
+
+
+
 </main>
 
 <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
