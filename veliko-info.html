@@ -45,12 +45,12 @@
     }
 
     .stage-info {
-        max-width: 800px;
+        max-width: 1000px;
         margin: 0 auto;
         background-color: #ffffff;
-        padding: 20px;
+        padding: 30px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
+        border-radius: 12px;
     }
 
     .stage-info h2 {
@@ -95,6 +95,7 @@
     p {
         color: #666;
         line-height: 1.8;
+        font-size: 20px; /* Ajustez la valeur selon vos préférences */
     }
 
     .stage-info img {
@@ -115,7 +116,7 @@
     }
 
     .images-container img {
-        width: 150px; /* Ajustez la taille selon vos besoins */
+        width: 170px; /* Ajustez la taille selon vos besoins */
         height: auto;
     }
     .main-image img {
@@ -175,8 +176,66 @@
         font-size: 20px;
         transform: translateY(-50%);
     }
+    .difficulties {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 
+    .difficulty-container {
+        perspective: 1000px;
+        flex: 1 1 30%;
+        min-width: 300px;
+        max-width: 100%;
+    }
 
+    .flip-card {
+        width: 100%;
+        height: 400px; /* Augmenter la hauteur de la carte */
+    }
+
+    .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+    }
+
+    .difficulty-container:hover .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+
+    .flip-card-front, .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem; /* Augmenter la taille de la police */
+        font-weight: bold;
+        padding: 20px; /* Ajouter de l'espace intérieur */
+    }
+
+    .flip-card-front {
+        background-color: #3498db;
+        color: white;
+    }
+
+    .flip-card-back {
+        background-color: #f0f2f5;
+        color: #333;
+        transform: rotateY(180deg);
+        padding: 20px;
+    }
+    .text-white {
+        color: white;
+    }
 
 </style>
 
@@ -217,7 +276,7 @@
 
     <div class="stage-info">
         <h2>Projet veliko</h2>
-        <div class="company-info">
+        <div class="mission">
             <p> <strong>Veliko </strong> est une application qui permet de suivre en temps réel la <strong>disponibilité des vélos dans les stations </strong> de partage.
                 Son objectif est de faciliter l'accès aux vélos en informant les utilisateurs de la <strong> localisation et de la disponibilité</strong>  des stations, contribuant ainsi à encourager une mobilité plus durable en milieu urbain.
                 Ce rapport présentera les outils utilisés, les différentes versions du projet, les difficultés rencontrées ainsi que la conclusion de cette réalisation.
@@ -225,7 +284,7 @@
         </div>
 
         <h2><strong>Outils utilisés :</strong></h2>
-        <div class="tools">
+        <div class="mission">
             <p>Le projet a été réalisé en utilisant :</p>
             <p><strong> Langages :</strong> </p>
             <div class="images-container">
@@ -244,7 +303,7 @@
             <img src="assets/img/portfolio/veliko/symfony.png" alt="Symfony">
             </div>
 
-            <p> <strong>L'API de Vélib' et Street View Map :</strong> </p>
+            <p> <strong>L'API de Vélib' et Open Street Map :</strong> </p>
             <div class="images-container">
                 <img src="assets/img/portfolio/veliko/streetMap.png" alt="Street View">
             </div>
@@ -270,8 +329,70 @@
         </div>
         </div>
 
-    </div>
+        <h2><strong>Difficultés rencontrées :</strong></h2>
 
+        <div class="difficulties">
+            <!-- Conteneur pour la difficulté liée aux emails -->
+            <div class="difficulty-container">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <h2 class="text-white">Email</h2>
+                        </div>
+                        <div class="flip-card-back">
+                            <p>Il a été compliqué de gérer l'envoi des e-mails et d'assurer leur bonne mise en forme.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conteneur pour la difficulté liée à la récupération de données API -->
+            <div class="difficulty-container">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <h2 class="text-white">Récupération des données API</h2>
+                        </div>
+                        <div class="flip-card-back">
+                            <p>La récupération des données via l'API était compliquée, étant donné qu'il s'agissait de données externes et non stockées dans la base de données.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conteneur pour la difficulté liée au contrôle des utilisateurs -->
+            <div class="difficulty-container">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <h2 class="text-white">Vérification des utilisateurs</h2>
+                        </div>
+                        <div class="flip-card-back">
+                            <p>J'ai eu des difficultés à rendre leur compte actif seulement s'il avait été vérifié, et donc bloquer la connexion en cas de compte non vérifié.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <h2><strong>Conclusion :</strong></h2>
+        <p>En conclusion, ce projet a été un véritable <strong>défi technique et organisationnel.</strong>
+            Les différentes difficultés rencontrées ont permis de <strong>renforcer mes compétences </strong> en matière de sécurité,
+            d’interaction avec des API externes et de gestion des erreurs.
+            La mise en place des fonctionnalités, telles que la récupération de données externes via une API
+            et la gestion des comptes utilisateurs, m’a permis de mieux comprendre les enjeux du traitement des informations en temps réel
+            et de la gestion des données sensibles.
+            Ce projet m’a également offert l’opportunité de <strong>découvrir Symfony</strong> , un framework que j'ai appris à maîtriser tout au long du développement.
+            Bien qu’il ait fallu surmonter plusieurs défis techniques,
+            comme la gestion des envois d’emails et la vérification fiable des comptes utilisateurs,
+            ce fut une expérience enrichissante.
+            Elle m’a permis <strong> d’approfondir mes connaissances en développement web</strong>,
+            en sécurité, et en gestion de systèmes d’authentification, tout en découvrant de nouveaux outils et
+            de bonnes pratiques.
+        </p>
+
+    </div>
 
     <script>
 
