@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 
 <head>
   <meta charset="utf-8">
@@ -37,53 +37,80 @@
 </head>
 <style>
   .carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
-    width: 80%; /* Ajuster cette largeur selon tes préférences */
+    overflow: hidden;
+    width: 80%; /* Ajustez selon vos besoins */
     margin: auto;
-    overflow: hidden; /* Cache les images qui sortent du conteneur */
   }
 
-  .images-container {
+  .carousel-content {
     display: flex;
-    transition: transform 0.5s ease;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
   }
 
   .carousel-slide {
-    width: 25%; /* Chaque image occupe 1/4 de la largeur du conteneur (donc 4 images visibles) */
-    height: auto;
-    margin-right: 10px; /* Espace entre les images */
+    display: flex;
+    flex-direction: column; /* Titre au-dessus des images */
+    align-items: center;
+    justify-content: center;
+    min-width: 100%; /* Chaque slide occupe 100% de la largeur visible */
+    text-align: center;
   }
 
-  .carousel-slide img {
-    width: 100%; /* L'image s'ajuste à la largeur du conteneur */
-    height: 100%; /* L'image s'ajuste à la hauteur du conteneur */
-    object-fit: cover; /* Recadrage de l'image si nécessaire */
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  .images-row {
+    display: flex;
+    gap: 15px; /* Espacement entre les images */
+    justify-content: center;
+  }
+
+  .images-row img {
+    max-width: 100px; /* Ajustez selon vos besoins */
   }
 
   button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: #007BFF;
     color: white;
-    font-size: 24px;
     border: none;
     padding: 10px;
     cursor: pointer;
-    z-index: 10; /* S'assurer que les boutons sont au-dessus des images */
-  }
-
-  .prev {
-    left: 10px; /* Positionnement du bouton de gauche */
-  }
-
-  .next {
-    right: 10px; /* Positionnement du bouton de droite */
+    z-index: 10;
   }
 
   button:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: #0056b3;
   }
+  button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 10; /* Assure que les boutons sont au-dessus des autres éléments */
+    position: absolute; /* Positionner les boutons par rapport à la zone du carrousel */
+    top: 50%; /* Centre verticalement */
+    transform: translateY(-50%); /* Corrige l'alignement */
+  }
+
+  button.prev {
+    left: 10px; /* Positionnez le bouton précédent à gauche */
+  }
+
+  button.next {
+    right: 10px; /* Positionnez le bouton suivant à droite */
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
 
 </style>
 <body class="index-page">
@@ -241,29 +268,36 @@
       <!-- Section Title -->
       <div class="container section-title text-center" data-aos="fade-up">
         <h2 style="font-size: 36px; font-weight: 700; color: #333;">Compétences</h2>
-        <p style="font-size: 18px; color: #777; margin-bottom: 40px;">Compétences acquises :</p>
-
       </div><!-- End Section Title -->
 
       <div class="carousel">
-        <button class="prev" onclick="moveSlide(-1)">&#60;</button> <!-- Bouton pour revenir en arrière -->
-        <div class="images-container">
-          <img src="assets/img/skills/css.png" alt="Image 1" class="carousel-slide">
-          <img src="assets/img/skills/php.png" alt="Image 2" class="carousel-slide">
-          <img src="assets/img/skills/html.png" alt="Image 3" class="carousel-slide">
-          <img src="assets/img/skills/js.png" alt="Image 4" class="carousel-slide">
-          <img src="assets/img/skills/sql.png" alt="Image 5" class="carousel-slide">
-          <img src="assets/img/skills/Docker-Logo.png" alt="Image 7" class="carousel-slide">
-          <img src="assets/img/skills/GitHub-Symbol.png" alt="Image 8" class="carousel-slide">
-          <img src="assets/img/skills/java-logo.png" alt="Image 9" class="carousel-slide">
-          <img src="assets/img/skills/mySql.png" alt="Image 10" class="carousel-slide">
-          <img src="assets/img/skills/python-logo.png" alt="Image 11" class="carousel-slide">
-          <!-- Ajoute d'autres images ici -->
+        <button class="prev" onclick="moveSlide(-1)">&#60;</button>
+        <div class="carousel-content">
+          <div class="carousel-slide">
+            <h2>Langages :</h2>
+            <div class="images-row">
+              <img src="assets/img/skills/css.png" alt="CSS">
+              <img src="assets/img/skills/php.png" alt="PHP">
+              <img src="assets/img/skills/html.png" alt="HTML">
+              <img src="assets/img/skills/js.png" alt="JavaScript">
+              <img src="assets/img/skills/sql.png" alt="SQL">
+              <img src="assets/img/skills/java-logo.png" alt="Java">
+              <img src="assets/img/skills/python-logo.png" alt="Python">
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <h2>Outils :</h2>
+            <div class="images-row">
+              <img src="assets/img/skills/inteliji.png" alt="inteliji">
+              <img src="assets/img/skills/Docker-Logo.png" alt="Docker">
+              <img src="assets/img/skills/GitHub-Symbol.png" alt="GitHub">
+              <img src="assets/img/skills/mySql.png" alt="MySQL">
+              <img src="assets/img/skills/phpstorm.png" alt="phpstorm">
+            </div>
+          </div>
         </div>
-        <button class="next" onclick="moveSlide(1)">&#62;</button> <!-- Bouton pour avancer -->
+        <button class="next" onclick="moveSlide(1)">&#62;</button>
       </div>
-
-
 
       <script>
         let currentIndex = 0;
@@ -274,20 +308,28 @@
 
           currentIndex += direction;
 
-          // Si le défilement dépasse les bornes, revenir à l'autre côté
+          // Boucle si on dépasse les bornes
           if (currentIndex < 0) {
             currentIndex = totalSlides - 1;
           } else if (currentIndex >= totalSlides) {
             currentIndex = 0;
           }
 
-          const newTransformValue = -currentIndex * (slides[0].clientWidth + 10); // Ajoute 10px pour l'espacement
-          document.querySelector('.images-container').style.transform = `translateX(${newTransformValue}px)`;
+          // Déplace le conteneur pour afficher la bonne slide
+          const newTransformValue = -currentIndex * 100; // Chaque slide prend 100% de la largeur
+          document.querySelector('.carousel-content').style.transform = `translateX(${newTransformValue}%)`;
         }
 
       </script>
 
-
+      <br>
+      <br>
+        <br>
+      <div class="container text-center" data-aos="fade-up" data-aos-delay="100">
+        <a href="assets/document/tableauSynthese.xlsx" target="_blank" class="btn" style="font-size: 16px; background-color: #2980b9; padding: 12px 30px; color: white; border-radius: 30px; text-decoration: none; transition: background-color 0.3s ease;">
+          Télécharger le tableau de synthèse
+        </a>
+      </div>
 
     </section>
 
@@ -371,6 +413,36 @@
     </section><!-- /Portfolio Section -->
           <div class="swiper-pagination"></div>
 
+    <section id="conclusion"  style="background-color: #f8f8f8">
+        <div class="container section-title text-center" data-aos="fade-up">
+            <h2 style="font-size: 36px; font-weight: 700; color: #333;">Conclusion</h2>
+            <p style="font-size: 18px; color: #777;"> À travers mon parcours,
+              j'ai pu acquérir de nombreuses <strong>compétences techniques et professionnelles </strong> qui me permettent aujourd'hui
+              de maîtriser plusieurs <strong>langages de programmation,
+                ainsi que des outils de développement et de gestion de projets.</strong>
+              Mes expériences de stage et mes projets en entreprise m'ont offert l'opportunité de mettre en pratique ces connaissances,
+              tout en affinant mes capacités à travailler en équipe et à résoudre des problèmes complexes.</p>
+
+          <br>
+          <br>
+          <p style="font-size: 18px; color: #777;">Ces différentes expériences m'ont également permis de développer
+            <strong>une approche analytique et créative </strong> face aux défis rencontrés,
+            notamment dans des projets tels que la mise en place de solutions multilingues.
+            Elles ont renforcé ma motivation à poursuivre mes études et
+            à m'investir pleinement dans ma carrière professionnelle.
+          </p>
+
+          <br>
+          <br>
+          <p style="font-size: 18px; color: #777;">Aujourd'hui, je suis déterminé à relever de nouveaux défis
+            et à<strong> continuer de perfectionner mes compétences</strong>,
+            en contribuant activement à des projets innovants dans le domaine de l'informatique.
+            Mon objectif est d'évoluer constamment, d'explorer de nouvelles technologies et
+            de participer à des projets qui façonnent l'avenir du secteur.
+            </p>
+        </div>
+    </section>
+
 
     <!-- Contact Section -->
     <section id="contact" class="contact section">
@@ -414,7 +486,6 @@
                   <div class="error-message"></div>
                   <div class="sent-message">Your message has been sent. Thank you!</div>
 
-                  <button type="submit">Envoyer</button>
                 </div>
 
               </div>
@@ -427,7 +498,7 @@
 
     </section><!-- /Contact Section -->
 
-  </main>
+    </main>
 
   <footer id="footer" class="footer position-relative light-background">
 
