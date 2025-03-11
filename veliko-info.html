@@ -428,6 +428,12 @@
             "assets/img/portfolio/veliko/versions/gestionUserAdmin.png",
             "assets/img/portfolio/veliko/versions/confirmAdmin.png",
         ];
+        const gallery4 = [
+            "assets/img/portfolio/veliko/versions/reservation.png",
+            "assets/img/portfolio/veliko/versions/gestionStat.png",
+            "assets/img/portfolio/veliko/versions/statUser.png",
+            "assets/img/portfolio/veliko/versions/statResa.png",
+        ];
 
         function openModal(index, galleryName) {
             // Select the correct gallery based on the passed name
@@ -438,7 +444,7 @@
         }
         function openModal2(index, galleryName) {
             // Select the correct gallery based on the passed name
-            currentGallery = galleryName === 'gallery3' ? gallery3 : gallery>4;
+            currentGallery = galleryName === 'gallery3' ? gallery3 : gallery4;
             currentModalIndex = index;
             document.getElementById('modalImage').src = currentGallery[currentModalIndex];
             document.getElementById('imageModal').style.display = 'flex';
